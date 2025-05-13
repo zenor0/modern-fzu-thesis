@@ -10,7 +10,7 @@
   info: (:),
   // 其他参数
   stoke-width: 0.5pt,
-  min-title-lines: 2,
+  min-title-lines: 1,
   info-inset: (x: 0pt, bottom: 1pt),
   info-key-width: 80pt,
   info-key-font: "宋体",
@@ -26,14 +26,14 @@
   fonts = 字体 + fonts
   info = (
     (
-      title: ("基于 Typst 的", "南京大学学位论文"),
+      title: ("基于 Typst 的", "福州大学本科生学位论文"),
       grade: "20XX",
       student-id: "1234567890",
       author: "张三",
       department: "某学院",
       major: "某专业",
-      supervisor: "李四",
-      supervisor-ii: "王五",
+      supervisor: "",
+      supervisor-ii: "",
       submit-date: datetime.today(),
     )
       + info
