@@ -171,7 +171,26 @@
     }
   ))
   counter(page).update(1)
-  
+
+  // Inline-code block setting
+  show raw.where(block: false): it => box(
+    inset: (x: 3pt),
+    box(
+      fill: luma(245),
+      inset: (x: 2pt),
+      outset: (y: 3pt),
+      radius: 2pt,
+    )[#it],
+  )
+
+  show raw.where(block: false): it => {
+    show ".": "." + sym.zws
+    show "_": "_" + sym.zws
+    it
+  }
+
+  // No numbering for manually assigned chapter
+  show <no-numbering>: set heading(numbering: none)
   
   it
 }

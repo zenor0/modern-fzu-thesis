@@ -41,8 +41,8 @@
     department-en: "School of Chemistry and Chemical Engineering",
     major: "某专业",
     major-en: "Chemistry",
-    supervisor: "李四",
-    supervisor-en: "Professor My Supervisor",
+    // supervisor: "李四",
+    // supervisor-en: "Professor My Supervisor",
     // supervisor-ii: ("王五", "副教授"),
     // supervisor-ii-en: "Professor My Supervisor",
     submit-date: datetime.today(),
@@ -89,7 +89,6 @@
 
 
 // 目录
-// 空行处理未做
 #outline-page()
 
 // 插图目录
@@ -107,7 +106,7 @@
 //   / DMRG: 密度矩阵重正化群密度矩阵重正化群密度矩阵重正化群 (Density-Matrix Reformation-Group)
 // ]
 
-= 导　论
+= 使用指南 
 
 == 列表
 
@@ -167,7 +166,7 @@
 )
 
 #figure(
-  image("images/nju-emblem.svg", width: 20%),
+  image("images/fzu_logo.svg", width: 20%),
   caption: [图片测试],
 ) <nju-logo>
 
@@ -206,8 +205,29 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
   caption: [代码块],
 ) <code>
 
+你也可以使用 @lst:typst-code 引入第三方模块来支持更丰富的代码块显示
 
-= 正　文
+#import "@preview/zebraw:0.5.4": zebraw
+#show: zebraw
+
+#figure(
+  ```typst
+#import "@preview/zebraw:0.5.4": zebraw
+#show: zebraw
+  ```,
+  caption: [第三方模块代码],
+) <typst-code>
+
+#figure(
+    ```py
+    def add(x, y):
+      return x + y
+    ```,
+    caption: [zebraw渲染的代码块],
+) <zebraw-code>
+
+
+= 正文预览
 
 == 正文子标题
 
@@ -228,13 +248,12 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 === 正文子子标题
 
 正文内容
-// #context query(
-//   heading.where(level: 1, body: [结论])
-// )
 
-#show heading.where(level: 1, body: [结论]): set heading(numbering: none)
+
 = 结论
+<no-numbering>
 
+使用 `<no-numbering>` 标签可以取消标题编号。
 
 // 手动分页
 #if twoside {
@@ -268,6 +287,6 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 附录内容，这里也可以加入图片，例如@fig:appendix-img。
 
 #figure(
-  image("images/nju-emblem.svg", width: 20%),
+  image("images/fzu_logo.svg", width: 20%),
   caption: [图片测试],
 ) <appendix-img>

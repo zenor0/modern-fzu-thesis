@@ -44,8 +44,8 @@
   // 默认参数
   fonts = 字体 + fonts
   info = (
-    title: ("基于 Typst 的", "南京大学学位论文"),
-    title-en: "NJU Thesis Template for Typst",
+    title: ("基于 Typst 的", "福州大学学位论文"),
+    title-en: "FZU Thesis Template for Typst",
     grade: "20XX",
     student-id: "1234567890",
     author: "张三",
@@ -56,8 +56,8 @@
     major-en: "XX Major",
     field: "某方向",
     field-en: "XX Field",
-    supervisor: "李四",
-    supervisor-en: "Professor Li Si",
+    supervisor: "",
+    supervisor-en: "",
     supervisor-ii: "",
     supervisor-ii-en: "",
     submit-date: datetime.today(),
@@ -70,9 +70,9 @@
     clc: "O643.12",
     udc: "544.4",
     secret-level: "公开",
-    supervisor-contact: "南京大学 江苏省南京市栖霞区仙林大道163号",
-    email: "xyz@smail.nju.edu.cn",
-    school-code: "10284",
+    supervisor-contact: "福州大学 福建省福州市福州大学城乌龙江北大道2号",
+    email: "author@fzu.edu.cn",
+    school-code: "350108",
     degree: auto,
     degree-en: auto,
   ) + info
@@ -101,25 +101,14 @@
       )
     },
     mainmatter: (..args) => {
-      if doctype == "master" or doctype == "doctor" {
-        mainmatter(
-          twoside: twoside,
-          display-header: true,
-          info: info,
-          anonymous: anonymous,
-          ..args,
-          fonts: fonts + args.named().at("fonts", default: (:)),
-        )
-      } else {
-        mainmatter(
-          twoside: twoside,
-          display-header: true,
-          info: info,
-          anonymous: anonymous,
-          ..args,
-          fonts: fonts + args.named().at("fonts", default: (:)),
-        )
-      }
+      mainmatter(
+        twoside: twoside,
+        display-header: true,
+        info: info,
+        anonymous: anonymous,
+        ..args,
+        fonts: fonts + args.named().at("fonts", default: (:)),
+      )
     },
     appendix: (..args) => {
       appendix(
