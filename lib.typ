@@ -1,6 +1,6 @@
-// 南京大学学位论文模板 modern-nju-thesis
-// Author: https://github.com/OrangeX4
-// Repo: https://github.com/nju-lug/modern-nju-thesis
+// 福州大学大学学位论文模板 modern-fzu-thesis
+// Author: https://github.com/zenor0
+// Repo: https://github.com/zenor0/modern-fzu-thesis
 // 在线模板可能不会更新得很及时，如果需要最新版本，请关注 Repo
 
 #import "layouts/doc.typ": doc
