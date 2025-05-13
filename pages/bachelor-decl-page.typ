@@ -45,7 +45,6 @@
       "福州大学本科生毕业设计（论文）诚信承诺书",
     ),
   )
-  linebreak()
   set text(font: fonts.宋体, size: 字号.小四)
   let student-commitment = {
     v(2em)
