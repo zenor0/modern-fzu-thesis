@@ -296,7 +296,9 @@ See @cool for details on how to do something cool.
 
 // 致谢
 #acknowledgement[
-  感谢 NJU-LUG，感谢 NJUThesis LaTeX 模板。
+  本模板基于南京大学学位论文 #link("https://github.com/nju-lug/modern-nju-thesis")[modern-nju-thesis] 魔改。
+
+  感谢模板原作者 #link("https://github.com/Orangex4")[OrangeX4], 感谢 typst 项目组，感谢 typst 中文社区。感谢 NJU-LUG，感谢 NJUThesis LaTeX 模板。
 ]
 
 // 手动分页
