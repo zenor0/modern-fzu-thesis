@@ -61,7 +61,7 @@
 #cover()
 
 // 声明页
-// #decl-page()
+#decl-page()
 
 
 // 前言
@@ -226,7 +226,37 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
     caption: [zebraw渲染的代码块],
 ) <zebraw-code>
 
+你也可以使用 @lst:lovelace 来显示算法伪代码
 
+#figure(
+  ```typst
+  #import "@preview/lovelace:0.3.0": *
+  ```,
+  caption: [算法伪代码模块 lovelace],
+) <lovelace>
+
+#import "@preview/lovelace:0.3.0": *
+
+#figure(
+  kind: "algorithm",
+  supplement: [算法],
+
+  pseudocode-list(booktabs: true, numbered-title: [我的算法])[
+    + do something
+    + do something else
+    + *while* still something to do
+      + do even more
+      + *if* not done yet *then*
+        + wait a bit
+        + resume working
+      + *else*
+        + go home
+      + *end*
+    + *end*
+  ]
+) <cool>
+
+See @cool for details on how to do something cool.
 = 正文预览
 
 == 正文子标题
