@@ -46,7 +46,7 @@
   show-figure: i-figured.show-figure.with(numbering: "1-1"),
   // equation 计数
   show-equation: i-figured.show-equation.with(numbering: "(1-1)"),
-  info: (title: ("abc", "b")),
+  info: (:),
   anonymous: false,
   ..args,
   it,
@@ -112,6 +112,7 @@
   set figure.caption(separator: separator)
   show figure.caption: caption-style
   show figure.caption: set text(font: fonts.宋体, size: 字号.五号)
+  set math.equation(supplement: "公式")
   // 3.6 优化列表显示
   //     术语列表 terms 不应该缩进
   show terms: set par(first-line-indent: 0pt)
