@@ -163,8 +163,9 @@
           } else {
             [#info.title.join("")]
           }
-          line(length: 100%, stroke: stroke-width + black)
+         line(length: 100%, stroke: stroke-width + black)
         },
+        header-ascent: 18pt
       )
     } else {
       none
