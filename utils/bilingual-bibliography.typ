@@ -144,7 +144,7 @@
   }
 
   set text(lang: "zh", font: 字体.宋体, size: 字号.五号)
-  set par(leading: 17pt, spacing: 17pt)
+  set par(leading: 8.5pt, spacing: 14.5pt)
   bibliography(
     title: title,
     full: full,
