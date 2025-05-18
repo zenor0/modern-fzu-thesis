@@ -123,8 +123,7 @@
   } else {
     // 封面图标
     v(45pt)
-    // 调整一下左边的间距
-    pad(image("../assets/vi/fzu-name.svg", width: 8cm), left: 0.4cm)
+    pad(image("../assets/vi/fzu-name.svg", width: 8cm))
     v(27pt)
   }
 
