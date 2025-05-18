@@ -18,7 +18,8 @@
   column-gutter: 3pt,
   row-gutter: 22pt,
   anonymous-info-keys: ("grade", "student-id", "author", "supervisor", "supervisor-ii", "department", "major"),
-  bold-info-keys: ("title",),
+  title: [本科生毕业设计（论文）],
+  bold-info-keys: ("",),
   bold-level: "bold",
   datetime-display: datetime-display,
 ) = {
@@ -111,7 +112,7 @@
 
   // 4.  正式渲染
 
-  // pagebreak(weak: true, to: if twoside { "odd" })
+  pagebreak(weak: true, to: if twoside { "odd" })
 
   // 居中对齐
   set align(center)
@@ -128,7 +129,7 @@
   }
 
   // 将中文之间的空格间隙从 0.25 em 调整到 0.5 em
-  text(size: 字号.一号, font: fonts.宋体, spacing: 200%, weight: "bold")[本科生毕业设计（论文）]
+  text(size: 字号.一号, font: fonts.宋体, spacing: 200%, weight: "bold", title)
 
   if anonymous {
     v(155pt)
