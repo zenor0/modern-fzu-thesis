@@ -1,5 +1,6 @@
 #import "../utils/style.typ": 字号, 字体
 #import "../utils/anonymous.typ": anonymize
+#import "../utils/custom-cuti.typ": show-cn-fakebold
 
 // 文稿设置，可以进行一些像页面边距这类的全局设置
 #let doc(
@@ -20,7 +21,7 @@
     )
       + info
   )
-
+  show: show-cn-fakebold
   // 2.  对参数进行处理
   // 2.1 如果是字符串，则使用换行符将标题分隔为列表
   if type(info.title) == str {
