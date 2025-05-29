@@ -159,42 +159,30 @@
     ),
   )
   v(10pt)
+  let teacher-info-row(key, value) = (
+    info-key(key),
+    info-long-value(key, value),
+    rect(
+      width: 100%,
+      inset: info-inset,
+      stroke: none,
+      text(
+        font: fonts.at(info-value-font, default: "宋体"),
+        size: 字号.三号,
+        weight: "regular",
+        bottom-edge: "descender",
+        "（签名）",
+      ),
+    ),
+  )
   block(
     width: block_width,
     grid(
       columns: (110pt, 1fr, info-key-width, 1fr, 70pt),
       column-gutter: column-gutter,
       row-gutter: row-gutter,
-      info-key("校内指导教师："),
-      info-long-value("supervisor", info.supervisor),
-      rect(
-        width: 100%,
-        inset: info-inset,
-        stroke: none,
-        text(
-          font: fonts.at(info-value-font, default: "宋体"),
-          size: 字号.三号,
-          weight: "regular",
-          bottom-edge: "descender",
-          "（签名）",
-        ),
-      ),
-      ..(
-        info-key("校外指导教师："),
-        info-long-value("supervisor-ii", info.supervisor-ii),
-        rect(
-          width: 100%,
-          inset: info-inset,
-          stroke: none,
-          text(
-            font: fonts.at(info-value-font, default: "宋体"),
-            size: 字号.三号,
-            weight: "regular",
-            bottom-edge: "descender",
-            "（签名）",
-          ),
-        ),
-      ),
+      ..teacher-info-row("校内指导教师：", info.supervisor),
+      ..teacher-info-row("校外指导教师：", info.supervisor-ii),
     ),
   )
   v(30pt)
@@ -205,7 +193,6 @@
     bottom-edge: "descender",
     info.submit-date,
   )
-  
-  counter(page).update(0)
 
+  counter(page).update(0)
 }
