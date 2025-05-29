@@ -62,9 +62,11 @@
   show outline.entry: entry => block(
     above: above.at(entry.level - 1, default: above.last()),
     below: below.at(entry.level - 1, default: below.last()),
-    [
+    context [
+      // TODO: Bad Practice: use hardcoded page number to determine if linebreak is needed
       #if (entry.level == 1 and entry.page().text == "1") or entry.body() in ([结论], ) {
         // 目录页不显示页码
+        // query(label("linebreak-in-outline"))
         linebreak()
       }
       #link(
