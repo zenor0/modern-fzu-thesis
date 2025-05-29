@@ -2,6 +2,10 @@
 
 // 你首先应该安装 https://github.com/zenor0/modern-fzu-thesis/tree/main/fonts/ 里的所有字体，
 // 如果是 Web App 上编辑，你应该手动上传这些字体文件，否则不能正常使用「楷体」和「仿宋」，导致显示错误。
+#let place-sign(align: center + horizon, dx: 0pt, dy: 0pt, ..args, body) = {
+  sym.zws
+  place(align, dx: dx, dy: dy, ..args)[#box(body)]
+}
 
 #let (
   // 布局函数
@@ -26,7 +30,7 @@
   // doctype: "bachelor",  // "bachelor" | "master" | "doctor" | "postdoc", 文档类型，默认为本科生 bachelor
   // degree: "academic",  // "academic" | "professional", 学位类型，默认为学术型 academic
   // anonymous: true,  // 盲审模式
-  // twoside: true, // 双面模式，会加入空白页，便于打印
+  // twoside: true, // 双面模式，会加入空白页，便于打印, Not working, redundant paging number will appear yet.
   // 你会发现 Typst 有许多警告，这是因为 modern-nju-thesis 加入了很多不必要的 fallback 字体
   // 你可以自定义字体消除警告，先英文字体后中文字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
   // fonts: (楷体: (name: "Times New Roman", covers: "latin-in-cjk"), "FZKai-Z03S")),
@@ -41,10 +45,10 @@
     department-en: "School of Chemistry and Chemical Engineering",
     major: "某专业",
     major-en: "Chemistry",
+    // 你可以使用模板提供的 place-sign 函数来放置电子签名，例如：
+    // supervisor: place-sign(dy: 6pt)[#image("images/sign.png", height: 1.5cm)],
     // supervisor: "李四",
-    // supervisor-en: "Professor My Supervisor",
-    // supervisor-ii: ("王五", "副教授"),
-    // supervisor-ii-en: "Professor My Supervisor",
+    // supervisor-ii: "王五",
     submit-date: datetime.today(),
   ),
   // 参考文献源
@@ -60,8 +64,12 @@
 // 封面页
 #cover()
 
-// 声明页
-#decl-page()
+// 诚信承诺书
+// 同样的，你可以使用模板提供的 place-sign 函数来放置电子签名，例如：
+#decl-page(
+  student-sign: place-sign(align: horizon, dx: -15pt, dy: 3pt)[#image("images/sign.png", height: 1.5cm)],
+  teacher-sign: place-sign(align: horizon, dx: -15pt, dy: 3pt)[#image("images/sign.png", height: 1.5cm)],
+)
 
 
 // 前言
@@ -106,7 +114,7 @@
 //   / DMRG: 密度矩阵重正化群密度矩阵重正化群密度矩阵重正化群 (Density-Matrix Reformation-Group)
 // ]
 
-= 使用指南 
+= 使用指南
 
 == 列表
 
@@ -177,7 +185,7 @@
 
 $ phi.alt := (1 + sqrt(5)) / 2 $ <ratio>
 
-引用数学公式需要加上 `eqt:` 前缀，则由@eqt:ratio，我们有：
+引用数学公式需要加上 `eqt:` 前缀，则由 @eqt:ratio，我们有：
 
 $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 
@@ -212,18 +220,18 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 
 #figure(
   ```typst
-#import "@preview/zebraw:0.5.4": zebraw
-#show: zebraw
+  #import "@preview/zebraw:0.5.4": zebraw
+  #show: zebraw
   ```,
   caption: [第三方模块代码],
 ) <typst-code>
 
 #figure(
-    ```py
-    def add(x, y):
-      return x + y
-    ```,
-    caption: [zebraw渲染的代码块],
+  ```py
+  def add(x, y):
+    return x + y
+  ```,
+  caption: [zebraw渲染的代码块],
 ) <zebraw-code>
 
 你也可以使用 @lst:lovelace 来显示算法伪代码
@@ -253,7 +261,7 @@ $ F_n = floor(1 / sqrt(5) phi.alt^n) $
         + go home
       + *end*
     + *end*
-  ]
+  ],
 ) <cool>
 
 See @cool for details on how to do something cool.

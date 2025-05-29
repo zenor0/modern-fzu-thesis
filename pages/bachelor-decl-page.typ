@@ -1,4 +1,5 @@
 #import "../utils/style.typ": 字号, 字体
+#import "../utils/datetime-display.typ": datetime-display
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #show: show-cn-fakebold
 
@@ -6,6 +7,11 @@
 #let bachelor-decl-page(
   anonymous: false,
   twoside: false,
+  student-sign: "",
+  student-sign-datetime: datetime.today(),
+  teacher-sign: "",
+  teacher-sign-datetime: datetime.today(),
+  datetime-display: datetime-display,
   fonts: (:),
   info: (:),
 ) = {
@@ -32,6 +38,13 @@
   if type(info.title) == array {
     info.title = info.title.join("")
   }
+  if type(student-sign-datetime) == datetime {
+    student-sign-datetime = datetime-display(student-sign-datetime)
+  }
+  if type(teacher-sign-datetime) == datetime {
+    teacher-sign-datetime = datetime-display(teacher-sign-datetime)
+  }
+
   // 3.  正式渲染
   pagebreak(weak: true, to: if twoside { "odd" })
 
@@ -61,9 +74,10 @@
 
     v(2em)
     align(right)[
-      学生（签名）：#box(width: 10em)
+      学生（签名）：#box(width: 10em, student-sign)
       \
-      #box(width: 4em)年#box(width: 2em)月#box(width: 2em)日#box(width: 2em)
+      // #box(width: 4em)年#box(width: 2em)月#box(width: 2em)日#box(width: 2em)
+      #student-sign-datetime #box(width: 2em)
     ]
     v(2em)
   }
@@ -82,15 +96,16 @@
 
     v(2em)
     align(right)[
-      指导教师（签名）：#box(width: 10em)
+      指导教师（签名）：#box(width: 10em, teacher-sign)
       \
-      #box(width: 4em)年#box(width: 2em)月#box(width: 2em)日#box(width: 2em)
+      // #box(width: 4em)年#box(width: 2em)月#box(width: 2em)日#box(width: 2em)
+      #teacher-sign-datetime #box(width: 2em)
     ]
     v(2em)
   }
   table(
     align: horizon,
-    columns: (auto, auto, auto, 1fr, auto, 1fr,),
+    columns: (auto, auto, auto, 1fr, auto, 1fr),
     stroke: .5pt,
     [学生姓名], info.author, [年　级], info.grade, [学　号], info.student-id,
     [所在学院], table.cell(colspan: 3, info.department), [所学专业], info.major,
