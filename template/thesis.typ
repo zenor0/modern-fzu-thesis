@@ -62,6 +62,8 @@
 // #fonts-display-page()
 
 // 封面页
+// 可以指定 title 参数来设置封面标题, 默认为本科生毕业设计(论文)
+// #cover(title: "基于DALI协议的照明控制系统")
 #cover()
 
 // 诚信承诺书
