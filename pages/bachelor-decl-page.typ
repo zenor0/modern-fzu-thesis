@@ -8,9 +8,9 @@
   anonymous: false,
   twoside: false,
   student-sign: "",
-  student-sign-datetime: datetime.today(),
+  student-sign-datetime: auto,
   teacher-sign: "",
-  teacher-sign-datetime: datetime.today(),
+  teacher-sign-datetime: auto,
   datetime-display: datetime-display,
   fonts: (:),
   info: (:),
@@ -76,8 +76,18 @@
     align(right)[
       学生（签名）：#box(width: 10em, student-sign)
       \
-      // #box(width: 4em)年#box(width: 2em)月#box(width: 2em)日#box(width: 2em)
-      #student-sign-datetime #box(width: 2em)
+      #if student-sign-datetime == auto {
+        box(width: 4em)
+        [年]
+        box(width: 2em)
+        [月]
+        box(width: 2em)
+        [日]
+        box(width: 2em)
+      } else {
+        student-sign-datetime
+        box(width: 2em)
+      }
     ]
     v(2em)
   }
@@ -98,8 +108,18 @@
     align(right)[
       指导教师（签名）：#box(width: 10em, teacher-sign)
       \
-      // #box(width: 4em)年#box(width: 2em)月#box(width: 2em)日#box(width: 2em)
-      #teacher-sign-datetime #box(width: 2em)
+      #if teacher-sign-datetime == auto {
+        box(width: 4em)
+        [年]
+        box(width: 2em)
+        [月]
+        box(width: 2em)
+        [日]
+        box(width: 2em)
+      } else {
+        teacher-sign-datetime
+        box(width: 2em)
+      }
     ]
     v(2em)
   }
