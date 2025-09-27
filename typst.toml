@@ -8,10 +8,11 @@ description = "福州大学学位论文模板。Modern Fuzhou University Thesis.
 repository = "https://github.com/zenor0/modern-fzu-thesis"
 keywords = ["Fuzhou University", "thesis"]
 categories = ["thesis"]
-exclude = ["imgs"]
+exclude = ["imgs", "fonts"]
 compiler = "0.13.0"
 
 [template]
 path = "template"
 entrypoint = "thesis.typ"
 thumbnail = "thumbnail.png"
+
